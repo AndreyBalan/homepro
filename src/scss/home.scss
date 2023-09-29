@@ -1,0 +1,82 @@
+//====================================================================================================
+.hero {
+    background-color: $bgColor;
+    display: grid;
+    min-height: 100vh;
+    padding: toRem(80) toRem(15) toRem(60) toRem(15);
+    grid-template-columns: auto 1fr auto;
+    &__image-ibg {
+        @include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
+        max-width: 100%;
+        border-radius: toRem(24);
+        overflow: hidden;
+        img {
+            object-position: top;
+            border-radius: toRem(24);
+        }
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        @include adaptiveValue(
+            "padding-left",
+            83,
+            15,
+            0,
+            $containerWidth,
+            991.98
+        );
+        @include adaptiveValue(
+            "padding-right",
+            83,
+            15,
+            0,
+            $containerWidth,
+            991.98
+        );
+    }
+    &__content {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__block-header {
+        max-width: toRem(673);
+    }
+    &__items {
+        &:not(:last-child) {
+            margin-bottom: toRem(24);
+        }
+    }
+}
+.items-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: $greyColor;
+    column-gap: toRem(52);
+    &__item {
+        color: $greyColor;
+        line-height: 1.4;
+        font-weight: 700;
+        position: relative;
+        &:not(:last-child) {
+            &::after {
+                content: "";
+                position: absolute;
+                right: toRem(-28);
+                top: calc(50% - toRem(2));
+                width: toRem(5);
+                height: toRem(5);
+                border-radius: 50%;
+                background-color: $greyColor;
+            }
+        }
+    }
+}
+
+//====================================================================================================
+// 2.09.32
